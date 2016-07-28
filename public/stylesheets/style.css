@@ -1,0 +1,36 @@
+
+@import 'https://fonts.googleapis.com/css?family=Lato|Open+Sans|Space+Mono';
+
+* {
+  -webkit-transition: all 1s;
+}
+
+.headerImage {
+  background: url('') no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  
+  height: 25em;
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+p.text {
+  max-width: 550px;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: #555;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Lato', sans-serif;
+}
+
+.code {
+  font-family: 'Space Mono', monospace;
+}
+
