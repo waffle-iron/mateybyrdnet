@@ -36,7 +36,8 @@
 
 /* PROJECTS */
 .projects {
-  margin-top: 3.5em;
+  margin-top: -1.5em;
+  margin-bottom: 1.5em;
 }
 
 .project {
@@ -45,7 +46,7 @@
   border-radius: 10px;
 
   max-width: 580px;
-  margin-bottom: 5em;
+  margin-top: 5em;
 }
 
 .project img {
@@ -106,7 +107,7 @@
 @media screen and (max-width: 544px) {
   .profile-image {
     width: 140px;
-    top: calc(25em - 99px);
+    top: calc(25em - 98.5px);
     left: calc(50% - 70px);
   }
 
