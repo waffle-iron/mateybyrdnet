@@ -49,7 +49,7 @@
   margin-top: 5em;
 }
 
-.project img {
+.project img.top {
   border-radius: 50%;
   width: 100px;
   height: auto;
@@ -101,6 +101,15 @@
 
 .projects .status .in-development {
   color: #E84114;
+}
+
+.projects .status .github {
+  float: right;
+}
+
+.projects .status .github img {
+  width: auto;
+  height: 1em;
 }
 
 /* DIFFERENCES ON MOBILE DEVICES */
