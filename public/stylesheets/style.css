@@ -5,7 +5,7 @@
   -webkit-transition: all 1s;
 }
 
-.headerImage {
+.header-image {
   background: url('') no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;

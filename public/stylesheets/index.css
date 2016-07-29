@@ -1,3 +1,5 @@
+
+/* PROFILE */
 .profile-image {
   border-radius: 50%;
   width: 180px;
@@ -9,15 +11,19 @@
 }
 
 .profile-info {
-  color: #555; 
+  color: #fff;
 
   position: absolute;
   left: calc(20% + 90px);
   top: calc(12.5em - 90px);
 
   padding-left: 2em;
-  padding-top: 2.8em;
+  padding-top: 2.6em;
   padding-bottom: 2em;
+}
+
+.profile-info h1 {
+  font-variant: small-caps
 }
 
 .inline {
@@ -25,27 +31,98 @@
 }
 
 .profile-info .info.darker {
-  color: #ddd;
+  color: #ccc;
 }
 
+/* PROJECTS */
+.projects.row {
+  margin-top: 3.5em;
+}
+
+.project {
+  padding: 1em;
+  background-color: #eee;
+  border-radius: 10px;
+
+  margin-bottom: 5em;
+}
+
+.project img {
+  border-radius: 50%;
+  width: 100px;
+  height: auto;
+
+  position: absolute;
+  left: calc(50% - 50px);
+  top: calc(0% - 45px);
+}
+
+.projects h2.title {
+  font-variant: small-caps;
+  padding-top: 35px;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.projects h5.subtitle {
+  font-variant: small-caps;
+  text-align: center;
+  color: #aaa
+}
+
+.projects .project .status {
+  color: #ddd;
+  padding: 1em;
+  padding-top: 0.3em;
+  padding-bottom: 0.4em;
+  font-variant: small-caps;
+
+  margin-left: -1em;
+  margin-right: -1em;
+  margin-bottom: -2em;
+  background-color: #555;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.projects .status * {
+  display: inline;
+}
+
+.projects .status .darker {
+  color: #aaa;
+}
+
+.projects .status .released {
+  color: #54CC14;
+}
+
+.projects .status .in-development {
+  color: #E84114;
+}
+
+/* DIFFERENCES ON MOBILE DEVICES */
 @media screen and (max-width: 544px) {
   .profile-image {
-    width: 130px;
-    top: calc(12.5em - 65px);
-    left: calc(5% - 65px);
+    width: 140px;
+    top: calc(25em - 99px);
+    left: calc(50% - 70px);
   }
 
   .profile-info {
-    left: calc(0% + 65px);
-    padding-top: 1.3em;
-    padding-left: 2em;
+    left: 0;
+    text-align: center;
+    width: 100%;
+    padding-left: 1em;
+    padding-right: 1em;
   }
 
-  h2 {
-    margin-bottom: 0;
+  .header-image {
+    margin-bottom: calc(130px - 91px + 1em);
   }
 
-  .inline {
-    display: inherit;
+  .project {
+    margin-left: -0.7em;
+    margin-right: -0.7em;
   }
 }
