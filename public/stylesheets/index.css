@@ -163,3 +163,11 @@
     -webkit-colomn-count: 3;
   }
 }
+
+@media screen and (min-width: 1800px) {
+    .projects {
+    column-count: 4;
+    -moz-column-count: 4;
+    -webkit-colomn-count: 4;
+  }
+}
