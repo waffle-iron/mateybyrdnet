@@ -38,15 +38,29 @@
 .projects {
   margin-top: -1.5em;
   margin-bottom: 1.5em;
+
+  width: 100%;
+  column-count: 2;
+  -moz-column-count: 2;
+  -webkit-colomn-count: 2;
+  -moz-column-gap: 1.5em;
+  -webkit-column-gap: 1.5em;
+  column-gap: 1.5em;
+}
+
+.masonary-item {
+  display: inline-block;
+  width: 100%;
 }
 
 .project {
   padding: 1em;
   background-color: #eee;
   border-radius: 10px;
-
   max-width: 580px;
-  margin-top: 5em;
+  margin-top: 4em;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .project img.top {
@@ -132,8 +146,20 @@
     margin-bottom: calc(130px - 91px + 1em);
   }
 
-  .project {
-    margin-left: -0.7em;
-    margin-right: -0.7em;
+  .projects {
+    column-count: 1;
+    -moz-column-count: 1;
+    -webkit-colomn-count: 1;
+    -moz-column-gap: 0;
+    -webkit-column-gap: 0;
+    column-gap: 0s;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+    .projects {
+    column-count: 3;
+    -moz-column-count: 3;
+    -webkit-colomn-count: 3;
   }
 }
