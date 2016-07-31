@@ -37,5 +37,16 @@ h1, h2, h3, h4, h5 {
 
 .code {
   font-family: 'Space Mono', monospace;
+  background-color: #eee;
+  padding-left: 1em;
+  max-width: 550px;
+  border-left: 2px solid #ccc;
+
+  padding-bottom: 1em;
+}
+
+.code .command {
+  font-weight: bold;
+  padding-top: 1em;
 }
 
