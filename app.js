@@ -62,7 +62,7 @@ app.use(function(err, req, res, next) {
 var dev = false;
 if (process.argv[2]=='dev') dev = true;
 
-var pagesToTest = ["/"];
+var pagesToTest = ["/", "/stats"];
 var pages = pagesToTest.length;
 var pagesTested = 0;
 
