@@ -34,15 +34,18 @@ block content
         - else 
           p.text An update has been requested please wait untill the update is complete.
 
-        - var updateAllowed = true;
-        - if (timeSinceLastUpdate >= updateDelay && !updating) updateAllowed = false;
+        - var disableUpdate = true;
+        - var typeOfButton = 'btn-danger';
+        - if (timeSinceLastUpdate >= updateDelay && !updating) { disableUpdate = false; typeOfButton = 'btn-primary'; }
         - if (!updating)
           form(method='post', style='padding-bottom: 1em;')
-            button.btn.btn-primary(id='btnRequestUpdate', type='submit', name='update', value='true', disabled=updateAllowed) Request update
+            button.btn(id='btnRequestUpdate', class=typeOfButton, type='submit', name='update', value='true', disabled=disableUpdate) Request update
 
     script(type='text/javascript').
       setTimeout(function() {
         document.getElementById('btnRequestUpdate').disabled = false;
+        $('#btnRequestUpdate').removeClass('btn-danger');
+        $('#btnRequestUpdate').addClass('btn-primary');
       }, (#{updateDelay}-#{timeSinceLastUpdate}) * 1000);
     
     script(type='text/javascript').
