@@ -12,8 +12,39 @@ block content
           .command uptime
           =uptime
 
-          .command last-update
-          =lastUpdate
-
           .command node -v
           =nodeVersion
+        br
+
+        .code
+          .command last-update
+          =lastUpdate
+          
+          .command seconds-since-update
+          #time=timeSinceLastUpdate
+        br
+        
+        - if (!updating)
+          p.text You can request an update every 
+            =updateDelay
+            |  seconds.
+        - else 
+          p.text An update has been requested please wait untill the update is complete.
+
+        - var updateAllowed = true;
+        - if (timeSinceLastUpdate >= updateDelay && !updating) updateAllowed = false;
+        - if (!updating)
+          form(method='post')
+            button.btn.btn-primary(id='btnRequestUpdate', type='submit', name='update', value='true', disabled=updateAllowed) Request update
+
+    script(type='text/javascript').
+      setTimeout(function() {
+        document.getElementById('btnRequestUpdate').disabled = false;
+      }, (#{updateDelay}-#{timeSinceLastUpdate}) * 1000);
+    
+    script(type='text/javascript').
+      var value = #{timeSinceLastUpdate};
+      window.setInterval(function() {
+        value += 1;
+        $("#time").text(value);
+      }, 1000);
