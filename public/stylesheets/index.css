@@ -118,6 +118,7 @@
 
 .projects .status .darker {
   color: #aaa;
+  text-decoration: none;
 }
 
 .projects .status .released {
