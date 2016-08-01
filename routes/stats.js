@@ -8,14 +8,17 @@ var lastUpdate = new Date();
 var updateDelay = 180;
 
 router.get('/', function(req,res,next) {
-  var uptime, nodeVersion, npmInfo;
+  var uptime, nodeVersion, gitCommit;
   var timeSinceLastUpdate = dateDiffInSeconds(lastUpdate, new Date());
 
   exec('uptime', function(error, stdout, stderr) {
     uptime = stdout;
      exec('node -v', function(error, stdout, stderr) {
       nodeVersion = stdout;
-      res.render('stats', { title: 'MateyByrd.Net | Status', uptime: uptime, lastUpdate: lastUpdate, nodeVersion: nodeVersion, timeSinceLastUpdate: timeSinceLastUpdate, updateDelay: updateDelay, updating: updating });
+      exec('git log --pretty=format:\'%h\' -n 1', function(error, stdout, stderr) {
+        gitCommit = stdout;
+        res.render('stats', { title: 'MateyByrd.Net | Status', uptime: uptime, lastUpdate: lastUpdate, nodeVersion: nodeVersion, timeSinceLastUpdate: timeSinceLastUpdate, updateDelay: updateDelay, updating: updating, gitCommit: gitCommit });
+      });
      });
   });
 });
