@@ -34,7 +34,7 @@ block content
         - var updateAllowed = true;
         - if (timeSinceLastUpdate >= updateDelay && !updating) updateAllowed = false;
         - if (!updating)
-          form(method='post')
+          form(method='post', style='padding-bottom: 1em;')
             button.btn.btn-primary(id='btnRequestUpdate', type='submit', name='update', value='true', disabled=updateAllowed) Request update
 
     script(type='text/javascript').
