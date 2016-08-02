@@ -91,6 +91,20 @@ h1, h2, h3, h4, h5 {
 
 @media screen and (max-width: 544px) {
   .navigation-bar {
-    right: 5%;
+    right: 3%;
+    top: calc(100% - 18px);
+  }
+
+  .navigation-bar .nav-item img {
+    height: 30px;
+  }
+
+  .navigation-bar .nav-item:not(.current):hover img {
+    height: 30px;
+    margin: 0;
+  }
+
+  .navigation-bar .nav-item .info {
+    display: none;
   }
 }
