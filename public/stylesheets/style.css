@@ -26,6 +26,10 @@ p.text {
   max-width: 550px;
 }
 
+a, a:hover {
+  text-decoration: none;
+}
+
 body {
   font-family: 'Open Sans', sans-serif;
   color: #555;
@@ -51,3 +55,42 @@ h1, h2, h3, h4, h5 {
   padding-top: 1em;
 }
 
+.navigation-bar {
+  position: relative;
+  top: calc(100% - 40px);
+  right: 15%;
+}
+
+.navigation-bar .nav-item {
+  position: relative;
+  float: right;
+  margin-left: 5px;
+}
+
+.navigation-bar .nav-item img {
+  border-radius: 50%;
+  width: auto;
+  height: 60px;
+  -webkit-transition: all 0.2s;
+  /*background-color: #fff;*/
+}
+
+.navigation-bar .nav-item:not(.current):hover img {
+  /*border: 2px solid #555;*/
+  height: 70px;
+  margin-top: -20px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+
+.navigation-bar .nav-item .info {
+  text-align: center;
+  color: #555 !important;
+}
+
+@media screen and (max-width: 544px) {
+  .navigation-bar {
+    right: 5%;
+  }
+}

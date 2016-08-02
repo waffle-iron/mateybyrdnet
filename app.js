@@ -9,6 +9,7 @@ var http = require('http');
 
 var routes = require('./routes/index');
 var stats = require('./routes/stats');
+var blog = require('./routes/blog');
 
 var app = express();
 
@@ -26,6 +27,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/stats', stats);
+app.use('/blog', blog);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -62,7 +64,7 @@ app.use(function(err, req, res, next) {
 var dev = false;
 if (process.argv[2]=='dev') dev = true;
 
-var pagesToTest = ["/", "/stats"];
+var pagesToTest = ["/", "/stats", "/blog"];
 var pages = pagesToTest.length;
 var pagesTested = 0;
 

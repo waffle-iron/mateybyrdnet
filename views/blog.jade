@@ -1,0 +1,23 @@
+extends layout
+
+block head
+	link(rel='stylesheet', href='/stylesheets/blog.css')
+
+block content
+	.header-image(style='background-image: linear-gradient(#3DA690, #375952);')
+		.header-text
+			h1 Development Blog
+			i.info.darker I drink and I develop things
+		//- NAVIGATION
+		.navigation-bar
+			a.nav-item.current(href='/blog')
+				img(src='/images/blog.svg')
+				.info Blog
+			a.nav-item(href='/')
+				img(src='/images/home.svg')
+				.info Home
+	.container-fluid
+		.row
+			.col-xs-0.col-sm-1.col-md-2
+			.col-xs-0.col-sm-10.col-md-8
+				p.text Here you will be able to follow the development of my projects, I will post about how and why I changed certain things and explain concepts that I am working on.
