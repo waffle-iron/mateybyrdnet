@@ -57,7 +57,7 @@ h1, h2, h3, h4, h5 {
 
 .navigation-bar {
   position: relative;
-  top: calc(100% - 40px);
+  top: calc(100% - 35px);
   right: 15%;
 }
 
@@ -87,10 +87,46 @@ h1, h2, h3, h4, h5 {
 .navigation-bar .nav-item .info {
   text-align: center;
   color: #555 !important;
+  font-size: 0.8em;
+  font-variant: small-caps;
 }
 
 @media screen and (max-width: 544px) {
   .navigation-bar {
+    right: 3%;
+    top: calc(100% - 15px);
+  }
+
+  .navigation-bar .nav-item img {
+    height: 25px;
+  }
+
+  .navigation-bar .nav-item:not(.current):hover img {
+    height: 25px;
+    margin: 0;
+  }
+
+  .navigation-bar .nav-item .info {
+    display: none;
+  }
+}
+
+@media (min-width: 544px) and (max-width: 768px) {
+  .navigation-bar {
     right: 5%;
+    top: calc(100% - 24px);
+  }
+
+  .navigation-bar .nav-item img {
+    height: 40px;
+  }
+
+  .navigation-bar .nav-item:not(.current):hover img {
+    height: 40px;
+    margin: 0;
+  }
+
+  .navigation-bar .nav-item .info {
+    /*display: none;*/
   }
 }
