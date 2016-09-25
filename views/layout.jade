@@ -6,11 +6,11 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel='shortcut icon', type='image/x-icon', href='/images/favicon.ico')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    script(async, src='https://code.jquery.com/jquery-3.1.0.min.js')
     block head
   body.preload
     block content
 
-    script(src='https://code.jquery.com/jquery-3.1.0.min.js')
     script(type='text/javascript').
       $(document).ready(function() { 
         $("body").removeClass("preload");
