@@ -6,4 +6,4 @@
  * File that updates the entire website using a shell_script.
  */
 
-echo shell_exec("sh updateDevPull.sh");
+echo shell_exec("sh updateDev.sh");
