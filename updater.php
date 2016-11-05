@@ -3,17 +3,7 @@
  * Created by Nick Belzer
  * Date: 05/11/2016
  *
- * File that updates the entire website.
+ * File that updates the entire website using a shell_script.
  */
 
-// Get the request by github.
-$data = $_REQUEST['payload'];
-
-// Sanitize the data
-$unescaped_data = stripslashes($data);
-
-// Set up our object to parse.
-$person = json_decode($unescaped_data);
-
-$myfile = fopen("webhook.data", "w");
-fwrite($myfile, $person);
+echo shell_exec("sh updateDevPull.sh");
