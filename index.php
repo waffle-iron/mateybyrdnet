@@ -21,7 +21,7 @@ $header->buildHeader();
 			</h2>
 			<p>
 				<h5>HI THERE</h5>
-				This subdomain of my website is used for development, if you wish to see the current stable version of my website look <a href="mateybyrd.net">here</a>. If you stay here please note that this version of the site is in development and receives all minor updates that I make to it, this means that some parts might not look or work as they should.
+				This subdomain of my website is used for development, if you wish to see the current stable version of my website look <a href="http://www.mateybyrd.net">here</a>. If you stay here please note that this version of the site is in development and receives all minor updates that I make to it, this means that some parts might not look or work as they should.
 			</p>
 			<p>
 				<h5>ROADMAP</h5>
