@@ -14,18 +14,27 @@ $header->buildHeader();
 
 <body>
 
-    <p>
-        Hello there, a website is under construction here.
-    </p>
-
-    <p>
-        This website will contain a few functions that are currently being worked on.
-        <ul>
-            <li>Auto update system (works now!)</li>
-            <li>Information about me ;)</li>
-            <li>Nice layout</li>
-        </ul>
-    </p>
+		<div class="message">
+			<h2>
+				<i class="fa fa-cog" aria-hidden="true"></i>
+				UNDER CONSTRUCTION
+			</h2>
+			<p>
+				<h5>HI THERE</h5>
+				This subdomain of my website is used for development, if you wish to see the current stable version of my website look <a href="mateybyrd.net">here</a>. If you stay here please note that this version of the site is in development and receives all minor updates that I make to it, this means that some parts might not look or work as they should.
+			</p>
+			<p>
+				<h5>ROADMAP</h5>
+				Since this domain is used for development I have made a small list of
+			things that I am working on, this list will change over the course of
+			time.
+				<ul>
+					<li><s>Auto update system</s></li>
+					<li>Information about me ;)</li>
+					<li>Nice layout (working on it)</li>
+				</ul>
+			</p>
+		</div>
 
 </body>
 </html>
