@@ -14,4 +14,5 @@
     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
 
     <link rel="stylesheet" href="/includes/styling/main.css">
+    <script src="https://use.fontawesome.com/ba5e469969.js"></script>
 </head>
