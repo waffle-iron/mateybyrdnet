@@ -14,7 +14,7 @@ $header->buildHeader();
 
 <body>
 
-		<div class="message">
+		<div class="message material">
 			<h2>
 				<i class="fa fa-cog" aria-hidden="true"></i>
 				UNDER CONSTRUCTION

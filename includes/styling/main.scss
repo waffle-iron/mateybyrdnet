@@ -1,15 +1,43 @@
 
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto');
 
+@mixin material-level($level) {
+  box-shadow:
+      0 (1px + (4 * $level)) (3px + (5 * $level)) rgba(0,0,0,0.12 + 0.04 * $level),
+      0 (1px + (3 * $level)) (4px + (3 * $level)) rgba(0,0,0,0.24);
+}
+
 :root {
-  font-size: 18px;
+  font-size: 22px;
+
+  @media (min-width: 600px) {
+    font-size: 18px;
+  }
 
   font-family: 'Open Sans', sans-serif;
 }
 
 .message {
+  background-color: #fff;
   width: 30rem;
-  max-width: 100%;
 
-  margin: 50px auto;
+  max-width: calc(100% - 2em);
+
+  margin: 0;
+  padding: 1em;
+
+  @media (min-width: 600px) {
+    margin: 2rem auto;
+    padding: 1.5em;
+  }
 }
+
+.material {
+  @include material-level(1px);
+
+  -webkit-transition: all 250ms;
+  -moz-transition: all 250ms;
+  transition: all 250ms;
+}
+
+
