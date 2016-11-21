@@ -20,6 +20,14 @@ router.get('/update', function(req, res, next) {
   }
 });
 
+router.post('/update', function(req, res, next) {
+  console.log("Update requested");
+  if (!updating) {
+    requestUpdate();
+    res.send('Update request received');
+  }
+});
+
 function requestUpdate()
 {
   if (updating == false && dateDiffInSeconds(lastUpdate, new Date()) > updateDelay)
