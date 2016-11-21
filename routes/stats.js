@@ -13,8 +13,8 @@ var updateDelay = 180;
 router.get('/update', function(req, res, next) {
   console.log("Update requested");
   if (updating == false) {
-    res.send("Update request received");
     requestUpdate();
+    res.send("Update request received");
   } else {
     res.send("Update request received but failed to initialize");
   }
