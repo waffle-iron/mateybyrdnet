@@ -33,7 +33,7 @@ function requestUpdate()
   if (updating == false && dateDiffInSeconds(lastUpdate, new Date()) > updateDelay)
   {
     updating = true;
-    Console.log("Executing update");
+    console.log("Executing update");
     spawn('sh', ['/srv/www/updateDev.sh'], { detached: true });
   }
 }
