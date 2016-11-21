@@ -1,2 +1,12 @@
-body {
-  background-color: #567891; }
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Roboto");
+:root {
+  font-size: 18px;
+  font-family: 'Open Sans', sans-serif; }
+
+p {
+  max-width: 22rem; }
+
+.message {
+  width: 22rem;
+  padding: 1rem;
+  margin: auto; }
