@@ -1,10 +1,10 @@
-var express = require('express');
-var sassMiddleware = require('node-sass-middleware');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+var express = require('express'),
+    sassMiddleware = require('node-sass-middleware'),
+    path = require('path'),
+    favicon = require('serve-favicon'),
+    logger = require('morgan'),
+    cookieParser = require('cookie-parser'),
+    bodyParser = require('body-parser');
 
 var index = require('./routes/index');
 
@@ -21,13 +21,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(
-    sassMiddleware({
-        src: path.join(__dirname, '/public/sass'),
-        dest: path.join(__dirname, '/public/stylesheets'),
-        debug: true,
-    })
+  sassMiddleware({
+    src: path.join(__dirname + '/public/sass'),
+    dest: path.join(__dirname, '/public/stylesheets'),
+    outputStyle: 'compressed',
+    debug: true,
+  })
 );
-
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);

@@ -2,8 +2,8 @@ extends layout
 
 block content
   .message
-    h2= message
-    h3= error.status
+    h2= error.status + " " + message
 
-    p
-      pre #{error.stack}
+    p Return to the <a href='/'>homepage</a>.
+
+  p(style='max-width: 50rem; margin: auto;')= error.stack
