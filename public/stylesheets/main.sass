@@ -1,0 +1,45 @@
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto')
+
+$font-size: 18px
+
+\:root
+  font-size: $font-size
+  font-family: 'Open Sans', sans-serif
+
+body
+  margin: 0
+
+h1, h2, h3, h4, h5
+  font-family: 'Roboto', sans-serif
+
+.full-width
+  width: 100%
+
+.simulation-frame
+  height: 20rem
+  background-color: #4d4d4d
+
+.frame
+  display: flex
+
+.frame-centered
+  justify-content: center
+
+.information-frame
+  .frame
+    .image, .information
+      padding: 1rem
+    img.image
+      width: 10rem
+      height: auto
+      border-radius: 50%
+    .information
+      .name, .subtitle
+        margin: 0
+      .name
+        margin-top: 1rem
+      .subtitle
+        color: #b5b5b5
+      width: 22rem
+      max-width: 22rem
