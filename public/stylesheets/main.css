@@ -1,1 +1,43 @@
-@import url("https://fonts.googleapis.com/css?family=Open+Sans|Roboto");:root{font-size:18px;font-family:'Open Sans', sans-serif}h1,h2,h3,h4,h5{font-family:'Roboto', sans-serif}p{max-width:22rem}.message{max-width:22rem;padding:1rem;margin:auto}
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Roboto");
+:root {
+  font-size: 18px;
+  font-family: 'Open Sans', sans-serif; }
+
+body {
+  margin: 0; }
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Roboto', sans-serif; }
+
+.full-width {
+  width: 100%; }
+
+.simulation-frame {
+  height: 20rem;
+  background-color: #4d4d4d; }
+
+.frame {
+  display: flex; }
+
+.frame-centered {
+  justify-content: center; }
+
+.information-frame .frame .image, .information-frame .frame .information {
+  padding: 1rem; }
+
+.information-frame .frame img.image {
+  width: 10rem;
+  height: auto;
+  border-radius: 50%; }
+
+.information-frame .frame .information {
+  width: 22rem;
+  max-width: 22rem; }
+  .information-frame .frame .information .name, .information-frame .frame .information .subtitle {
+    margin: 0; }
+  .information-frame .frame .information .name {
+    margin-top: 1rem; }
+  .information-frame .frame .information .subtitle {
+    color: #b5b5b5; }
+
+/*# sourceMappingURL=main.css.map */
