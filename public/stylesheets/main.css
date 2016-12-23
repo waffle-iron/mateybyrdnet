@@ -27,7 +27,7 @@ h1, h2, h3, h4, h5 {
 
 .information-frame .frame img.image {
   width: 10rem;
-  height: auto;
+  height: 10rem;
   border-radius: 50%; }
 
 .information-frame .frame .information {

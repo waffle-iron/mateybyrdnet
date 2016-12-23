@@ -1,22 +1,38 @@
+@import url("https://fonts.googleapis.com/css?family=Audiowide");
+.wrapper {
+  width: 100%;
+  height: 100%; }
+
 .mining-game {
   padding: 1rem;
-  color: #fff; }
-  .mining-game .crystals.total {
-    color: #b2b2b2; }
-    .mining-game .crystals.total::before {
-      color: #a2a2a2;
+  color: #fff;
+  font-family: 'Audiowide', cursive; }
+  .mining-game .overlay {
+    display: flex;
+    flex-direction: row;
+    align-content: flex-end;
+    justify-content: space-between;
+    text-align: end; }
+    .mining-game .overlay .crystals .label, .mining-game .overlay .workers .label {
+      color: #b2b2b2;
       font-size: 0.8rem;
-      content: 'TOTAL AMOUNT';
-      display: block; }
-  .mining-game .crystals.personal::before {
-    color: #a2a2a2;
-    font-size: 0.8rem;
-    content: 'PERSONAL AMOUNT';
-    display: block; }
-  .mining-game .workers::before {
-    color: #a2a2a2;
-    font-size: 0.8rem;
-    content: 'AMOUNT OF WORKERS';
-    display: block; }
+      text-transform: uppercase; }
+      .mining-game .overlay .crystals .label::before, .mining-game .overlay .workers .label::before {
+        content: '// '; }
+    .mining-game .overlay .crystals .icon, .mining-game .overlay .workers .icon {
+      display: inline-block;
+      height: 1rem;
+      margin-right: 0.5rem; }
+    .mining-game .overlay .crystals .amount, .mining-game .overlay .workers .amount {
+      display: inline-block;
+      color: #fff;
+      font-size: 1.2rem;
+      padding-bottom: 1rem; }
+    .mining-game .overlay .crystals.total {
+      padding-bottom: 1rem; }
+      .mining-game .overlay .crystals.total .amount {
+        color: #d2d2d2; }
+  .mining-game .crystals.personal .amount {
+    font-size: 3rem; }
 
 /*# sourceMappingURL=miningGame.css.map */

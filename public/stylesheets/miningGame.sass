@@ -1,23 +1,44 @@
+@import url('https://fonts.googleapis.com/css?family=Audiowide')
+
+.wrapper
+  width: 100%
+  height: 100%
+
 .mining-game
   padding: 1rem
   color: #fff
-  .crystals
-    &.total
-      color: #b2b2b2
-      &::before
-        color: #a2a2a2
+  font-family: 'Audiowide', cursive
+
+  .overlay
+    display: flex
+    flex-direction: row
+    align-content: flex-end
+    justify-content: space-between
+    text-align: end
+
+    .crystals, .workers
+      .label
+        color: #b2b2b2
         font-size: 0.8rem
-        content: 'TOTAL AMOUNT'
-        display: block
-    &.personal
-      &::before
-        color: #a2a2a2
-        font-size: 0.8rem
-        content: 'PERSONAL AMOUNT'
-        display: block
-  .workers
-    &::before
-      color: #a2a2a2
-      font-size: 0.8rem
-      content: 'AMOUNT OF WORKERS'
-      display: block
+        text-transform: uppercase
+        &::before
+          content: '// '
+      .icon
+        display: inline-block
+        height: 1rem
+        margin-right: 0.5rem
+      .amount
+        display: inline-block
+        color: #fff
+        font-size: 1.2rem
+        padding-bottom: 1rem
+
+    .crystals.total
+      padding-bottom: 1rem
+      .amount
+        color: #d2d2d2
+
+
+  .crystals.personal
+    .amount
+      font-size: 3rem
