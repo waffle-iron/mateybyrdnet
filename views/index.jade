@@ -1,7 +1,10 @@
 extends layout
 
+block head
+  link(rel='stylesheet', href='/stylesheets/miningGame.css')
+
 block content
-  .full-width.simulation-frame
+  .full-width.simulation-frame#mining-game
 
   .full-width.information-frame
     .frame.frame-centered
@@ -10,3 +13,6 @@ block content
         h3.name Nick Belzer
         h4.subtitle Also known as MateyByrd
         p.description Welcome to my personal website. Here you are able to follow my progress through time and space.
+
+block scripts
+  script(src='/javascript/miningGameClient.js')
