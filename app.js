@@ -7,6 +7,7 @@ var express = require('express'),
 
 var index = require('./routes/index');
 var stats = require('./routes/stats');
+var miningGame = require('./routes/miningGame');
 
 var app = express();
 
@@ -19,7 +20,7 @@ app.set('view engine', 'jade');
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
+app.use(cookieParser(require('./routes/helpers/keys').cookiekey));
 app.use(
   require('node-sass-middleware')({
     src: path.join(__dirname, 'public'),
@@ -31,6 +32,7 @@ app.use(
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
+app.use('/mining', miningGame);
 app.use('/stats', stats);
 
 // catch 404 and forward to error handler

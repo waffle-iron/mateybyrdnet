@@ -2,3 +2,5 @@
 .idea/
 .DS_Store
 node_modules/
+
+routes/helpers/keys.js
