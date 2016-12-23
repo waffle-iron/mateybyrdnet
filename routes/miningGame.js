@@ -154,7 +154,7 @@ function createNewSession(res, callback) {
       console.log("=> Created new session with id " + result.insertId);
 
       // Send the given session-id to the user in a cookie.
-      res.cookie('session-id', result.insertId, { signed: true });
+      res.cookie('session-id', result.insertId, { domain: 'dev.mateybyrd.net', maxAge: 365*24*60*60*100, signed: true });
 
       // Successful callback that returns the given sessionId
       callback(null, result.insertId);
