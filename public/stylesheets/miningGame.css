@@ -1,0 +1,22 @@
+.mining-game {
+  padding: 1rem;
+  color: #fff; }
+  .mining-game .crystals.total {
+    color: #b2b2b2; }
+    .mining-game .crystals.total::before {
+      color: #a2a2a2;
+      font-size: 0.8rem;
+      content: 'TOTAL AMOUNT';
+      display: block; }
+  .mining-game .crystals.personal::before {
+    color: #a2a2a2;
+    font-size: 0.8rem;
+    content: 'PERSONAL AMOUNT';
+    display: block; }
+  .mining-game .workers::before {
+    color: #a2a2a2;
+    font-size: 0.8rem;
+    content: 'AMOUNT OF WORKERS';
+    display: block; }
+
+/*# sourceMappingURL=miningGame.css.map */
