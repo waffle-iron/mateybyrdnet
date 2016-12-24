@@ -309,10 +309,10 @@ function compressData(pastHours) {
       for (var i = 0; i < sessions.length; i++) {
         var sessionId = sessions[i].session_id;
 
-        dbConnection.query('SELECT DATE(t.timestamp) as date, HOUR(t.timestamp) as hour, FLOOR( MINUTE(t.timestamp) / 10) as hourPart, SUM(t.amount) as amount FROM mining_game.transactions as t WHERE t.session_id=' + sessionId + ' AND TIMEDIFF(NOW(), t.timestamp) < ' + pastHours*60*60 + ' GROUP BY date, hour, hourPart;', function(err, result) {
+        dbConnection.query('SELECT t.session_id as session_id, DATE(t.timestamp) as date, HOUR(t.timestamp) as hour, FLOOR( MINUTE(t.timestamp) / 10) as hourPart, SUM(t.amount) as amount FROM mining_game.transactions as t WHERE t.session_id=' + sessionId + ' AND TIMEDIFF(NOW(), t.timestamp) < ' + pastHours*60*60 + ' GROUP BY date, hour, hourPart;', function(err, result) {
           if (err) console.log('=> Error while requesting compressed' +
             ' transactions, ' + err.message);
-          else updateCompressedSessions(sessionId, pastHours, result);
+          else updateCompressedSessions(result[0]['session_id'], pastHours, result);
         });
       }
     }
@@ -328,6 +328,7 @@ function compressData(pastHours) {
  * @param rows The compressed rows we should process.
  */
 function updateCompressedSessions(sessionId, pastHours, rows) {
+  console.log('=> Compressing transactions for session: ' + sessionId);
   // If we are not dealing with an error remove the preexisting rows,
   // since these are now in memory.
   dbConnection.query('DELETE FROM mining_game.transactions WHERE' +
