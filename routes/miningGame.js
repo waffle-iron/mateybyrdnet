@@ -16,6 +16,7 @@ dbConnection.connect(function(err){
   else {
     console.log('=> Compressing transactions data to 10 minutes');
     compressData(12);
+    setInterval(function() { compressData(12); }, 11*60*1000);
   }
 });
 
@@ -309,7 +310,7 @@ function compressData(pastHours) {
       for (var i = 0; i < sessions.length; i++) {
         var sessionId = sessions[i].session_id;
 
-        dbConnection.query('SELECT t.session_id as session_id, DATE(t.timestamp) as date, HOUR(t.timestamp) as hour, FLOOR( MINUTE(t.timestamp) / 10) as hourPart, SUM(t.amount) as amount FROM mining_game.transactions as t WHERE t.session_id=' + sessionId + ' AND TIMEDIFF(NOW(), t.timestamp) < ' + pastHours*60*60 + ' GROUP BY date, hour, hourPart;', function(err, result) {
+        dbConnection.query('SELECT t.session_id as session_id, DATE(t.timestamp) as date, HOUR(t.timestamp) as hour, FLOOR( MINUTE(t.timestamp) / 10) as hourPart, SUM(t.amount) as amount FROM mining_game.transactions as t WHERE t.session_id=' + sessionId + ' AND TIMEDIFF(NOW(), t.timestamp) < ' + pastHours*60*100 + ' GROUP BY date, hour, hourPart;', function(err, result) {
           if (err) console.log('=> Error while requesting compressed' +
             ' transactions, ' + err.message);
           else if(result.length > 0) updateCompressedSessions(result[0]['session_id'], pastHours, result);
@@ -332,7 +333,7 @@ function updateCompressedSessions(sessionId, pastHours, rows) {
   // If we are not dealing with an error remove the preexisting rows,
   // since these are now in memory.
   dbConnection.query('DELETE FROM mining_game.transactions WHERE' +
-    ' transactions.session_id=' + sessionId + ' AND TIMEDIFF(NOW(), transactions.timestamp) < '+ pastHours*60*60 + ';', function(err, result) {
+    ' transactions.session_id=' + sessionId + ' AND TIMEDIFF(NOW(), transactions.timestamp) < '+ pastHours*60*100 + ';', function(err, result) {
     if (err) console.log("=> Something went wrong when" +
       " compressing the data, " + err.message);
   });
