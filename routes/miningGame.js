@@ -13,6 +13,9 @@ var productionRate = 1;
 
 dbConnection.connect(function(err){
   if (err) console.log("=> Was not able to connect to the database " + err.message);
+  else {
+    compressData()
+  }
 });
 
 /**
@@ -269,7 +272,7 @@ function isValidSession(sessionId) {
  * @param workers The amount of workers this session has.
  */
 function finishProductionCycle(sessionId, workers) {
-  dbConnection.query('INSERT INTO mining_game.transactions VALUES (NULL, ' + sessionId + ', ' + workers * productionRate + ');', function(err, result) {
+  dbConnection.query('INSERT INTO mining_game.transactions VALUES (NULL, ' + sessionId + ', ' + workers * productionRate + ', NOW());', function(err, result) {
     if (err) console.log('=> Error while adding a new transaction, ' + err.message);
   });
 
