@@ -1,3 +1,5 @@
+
+@import './variables.sass'
 @import url('https://fonts.googleapis.com/css?family=Audiowide')
 
 .wrapper
@@ -15,6 +17,10 @@
     align-content: flex-end
     justify-content: space-between
     text-align: end
+
+    .data
+      @media screen and (max-width: $break-mobile)
+      display: flex
 
     .crystals, .workers
       .label
