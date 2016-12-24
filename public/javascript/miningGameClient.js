@@ -2,6 +2,15 @@
  * Created by nickbelzer on 23/12/2016.
  */
 
+var countUpOptions = {
+  useEasing : true,
+  useGrouping : true,
+  separator : ',',
+  decimal : '.',
+  prefix : '',
+  suffix : ''
+};
+
 /**
  * MiningGame Object, stores all data that has to do with the game.
  */
@@ -36,7 +45,7 @@ var MiningGame = function() {
    * @param data The data json that contains the total amount of crystals mined.
    */
   function updateTotalCount(data) {
-    $('#totalCrystals').text(data['crystals']);
+    new CountUp('totalCrystals', $('#totalCrystals').text(), data['crystals'], 0, 1, countUpOptions).start();
 
     // Because updateTotalCount is called each 5 seconds it is a good moment
     // to also update the personal data of this session.
@@ -50,8 +59,9 @@ var MiningGame = function() {
    * @param data The data json that contains the session specific data.
    */
   function updatePersonal(data) {
-    $('#personalWorkers').text(data['workers']);
-    $('#personalCrystals').text(data['crystals']);
+    new CountUp('personalWorkers', $('#personalWorkers').text(), data['workers'], 0, 1, countUpOptions).start();
+
+    new CountUp('personalCrystals', $('#personalCrystals').text(), data['crystals'], 0, 1, countUpOptions).start();
   };
 };
 
