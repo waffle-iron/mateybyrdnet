@@ -1,20 +1,22 @@
 //
    Created by nickbelzer on 23/12/2016.
 
-.wrapper
-  .mining-game
-    .overlay
-      .filler
-      .data
-        .crystals.total
-          .label Total mined
-          img.icon(src='/images/crystal.png')
-          .amount#totalCrystals 0
-        .crystals.personal
-          .label Personally mined
-          img.icon(src='/images/crystal.png')
-          .amount#personalCrystals 0
+.spacing
 
-        .workers.personal
-          .label Amount of workers
-          .amount#personalWorkers 0
+.wrapper
+  .fixed
+    .mining-game
+      .overlay
+        .data
+          .crystals.total
+            .label Total
+            img.icon(src='/images/crystal.png')
+            .amount#totalCrystals 0
+          .crystals.personal
+            .label Personal
+            img.icon(src='/images/crystal.png')
+            .amount#personalCrystals 0
+
+          .workers.personal
+            .label Workers
+            .amount#personalWorkers 0
