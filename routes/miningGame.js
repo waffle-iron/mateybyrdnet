@@ -13,6 +13,11 @@ var productionRate = 1;
 
 dbConnection.connect(function(err){
   if (err) console.log("=> Was not able to connect to the database " + err.message);
+  else {
+    console.log('=> Compressing transactions data to 10 minutes');
+    compressData(12);
+    setInterval(function() { compressData(12); }, 11*60*1000);
+  }
 });
 
 /**
@@ -154,7 +159,7 @@ function createNewSession(res, callback) {
       console.log("=> Created new session with id " + result.insertId);
 
       // Send the given session-id to the user in a cookie.
-      res.cookie('session-id', result.insertId, { domain: 'dev.mateybyrd.net', maxAge: 365*24*60*60*100, signed: true });
+      res.cookie('session-id', result.insertId, { maxAge: 365*24*60*60*100, signed: true });
 
       // Successful callback that returns the given sessionId
       callback(null, result.insertId);
@@ -269,7 +274,7 @@ function isValidSession(sessionId) {
  * @param workers The amount of workers this session has.
  */
 function finishProductionCycle(sessionId, workers) {
-  dbConnection.query('INSERT INTO mining_game.transactions VALUES (NULL, ' + sessionId + ', ' + workers * productionRate + ');', function(err, result) {
+  dbConnection.query('INSERT INTO mining_game.transactions VALUES (NULL, ' + sessionId + ', ' + workers * productionRate + ', NOW());', function(err, result) {
     if (err) console.log('=> Error while adding a new transaction, ' + err.message);
   });
 
@@ -289,6 +294,64 @@ function updateLastActive(sessionId) {
     ' sessions.last_active=NOW() WHERE sessions.session_id=' + sessionId + ';', function(err, result) {
     if (err) console.log('=> Error while updating last_active of session ' + sessionId + ', ' + err.message);
   });
+}
+
+/**
+ * Method that compresses transaction data based on 10 minutes sprints, all
+ * the data of 10 minutes for one session will be compressed to a single row
+ * in the table.
+ *
+ * @param pastHours How far back this query should look to compress data.
+ */
+function compressData(pastHours) {
+  // Get all sessions
+  dbConnection.query('SELECT sessions.session_id FROM mining_game.sessions;', function(err, sessions) {
+    if (!err) {
+      for (var i = 0; i < sessions.length; i++) {
+        var sessionId = sessions[i].session_id;
+
+        dbConnection.query('SELECT t.session_id as session_id, DATE(t.timestamp) as date, HOUR(t.timestamp) as hour, FLOOR( MINUTE(t.timestamp) / 10) as hourPart, SUM(t.amount) as amount FROM mining_game.transactions as t WHERE t.session_id=' + sessionId + ' AND TIMEDIFF(NOW(), t.timestamp) < ' + pastHours*60*100 + ' GROUP BY date, hour, hourPart;', function(err, result) {
+          if (err) console.log('=> Error while requesting compressed' +
+            ' transactions, ' + err.message);
+          else if(result.length > 0) updateCompressedSessions(result[0]['session_id'], pastHours, result);
+        });
+      }
+    }
+  });
+}
+
+/**
+ * From the compressed rows we have to remove the old transactions and add
+ * the new compressed ones to the database.
+ *
+ * @param sessionId the sessionId we are currently working with.
+ * @param pastHours How far back we should look to remove the old transactions.
+ * @param rows The compressed rows we should process.
+ */
+function updateCompressedSessions(sessionId, pastHours, rows) {
+  console.log('=> Compressing transactions for session: ' + sessionId);
+  // If we are not dealing with an error remove the preexisting rows,
+  // since these are now in memory.
+  dbConnection.query('DELETE FROM mining_game.transactions WHERE' +
+    ' transactions.session_id=' + sessionId + ' AND TIMEDIFF(NOW(), transactions.timestamp) < '+ pastHours*60*100 + ';', function(err, result) {
+    if (err) console.log("=> Something went wrong when" +
+      " compressing the data, " + err.message);
+  });
+  // For each item we got add the compressed version to the database.
+  for (var i = 0; i < rows.length; i++) {
+    // Make sure we get a datetime value that is based on the 10 minute
+    // sessions.
+    rows[i].date.setHours(rows[i].hour);
+    rows[i].date.setMinutes(10 * rows[i].hourPart);
+    var datetime = new moment(rows[i].date);
+
+    // Add the compressed version back in to the database.
+    dbConnection.query('INSERT INTO mining_game.transactions' +
+      ' VALUES(null, ' + sessionId + ', ' + rows[i].amount + ', TIMESTAMP(\'' + datetime.format('YYYY-MM-DD HH:mm:ss') + '\'));', function(err, result) {
+      if (err) console.log("=> Something went wrong when" +
+        " compressing the data, " + err.message);
+    });
+  }
 }
 
 module.exports = router;

@@ -5,6 +5,9 @@ block head
 
 block content
   .full-width.simulation-frame#mining-game
+    .start-menu
+      .title Crystal Miner
+      button.btn.btn-outline-success.loadGame(onClick='loadGame()') Start Game
 
   .full-width.information-frame
     .frame.frame-centered
@@ -16,3 +19,4 @@ block content
 
 block scripts
   script(src='/javascript/miningGameClient.js')
+  script(src='/javascript/countUp.min.js')
