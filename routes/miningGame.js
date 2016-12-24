@@ -312,7 +312,7 @@ function compressData(pastHours) {
         dbConnection.query('SELECT t.session_id as session_id, DATE(t.timestamp) as date, HOUR(t.timestamp) as hour, FLOOR( MINUTE(t.timestamp) / 10) as hourPart, SUM(t.amount) as amount FROM mining_game.transactions as t WHERE t.session_id=' + sessionId + ' AND TIMEDIFF(NOW(), t.timestamp) < ' + pastHours*60*60 + ' GROUP BY date, hour, hourPart;', function(err, result) {
           if (err) console.log('=> Error while requesting compressed' +
             ' transactions, ' + err.message);
-          else updateCompressedSessions(result[0]['session_id'], pastHours, result);
+          else if(result.length > 0) updateCompressedSessions(result[0]['session_id'], pastHours, result);
         });
       }
     }
