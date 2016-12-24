@@ -16,15 +16,22 @@ var countUpOptions = {
  */
 var MiningGame = function() {
 
+  var workers, personalCrystals, totalCrystals;
+
   /**
    * Function that starts the game, it does this by loading the game in to
    * view and downloading all the session data from the server.
    */
   this.startGame = function() {
-    $('#mining-game').load('/mining');
+    $('#mining-game').load('/mining', function() {
+      workers = new CountUp('personalWorkers', 0, 0, 0, 1, countUpOptions);
+      personalCrystals = new CountUp('personalCrystals', 0, 0, 0, 1, countUpOptions);
+      totalCrystals = new CountUp('totalCrystals', 0, 0, 0, 1, countUpOptions);
+    });
 
     $.get('/mining/checkSession', function() {
       $.getJSON('/mining/sessionData', updatePersonal);
+
       holdConnection();
     });
 
@@ -45,7 +52,7 @@ var MiningGame = function() {
    * @param data The data json that contains the total amount of crystals mined.
    */
   function updateTotalCount(data) {
-    new CountUp('totalCrystals', $('#totalCrystals').text(), data['crystals'], 0, 1, countUpOptions).start();
+    totalCrystals.update(data['crystals']);
 
     // Because updateTotalCount is called each 5 seconds it is a good moment
     // to also update the personal data of this session.
@@ -59,9 +66,8 @@ var MiningGame = function() {
    * @param data The data json that contains the session specific data.
    */
   function updatePersonal(data) {
-    new CountUp('personalWorkers', $('#personalWorkers').text(), data['workers'], 0, 1, countUpOptions).start();
-
-    new CountUp('personalCrystals', $('#personalCrystals').text(), data['crystals'], 0, 1, countUpOptions).start();
+    personalCrystals.update(data['crystals']);
+    workers.update(data['workers']);
   };
 };
 
