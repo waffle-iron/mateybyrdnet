@@ -1,0 +1,108 @@
+
+@import './variables.sass'
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script')
+
+$dark-color: #090A0F
+
+@function multiple-box-shadow ($n)
+  $value: '#{random(3440)}px #{random(2000)}px #FFF'
+  @for $i from 2 through $n
+    $value: '#{$value} , #{random(3440)}px #{random(2000)}px #FFF'
+
+  @return unquote($value)
+
+$shadows-small:  multiple-box-shadow(700)
+
+html, body
+  height: 100%
+
+#stars, #stars2, #stars3
+  width: 2px
+  height: 2px
+  background: transparent
+  box-shadow: multiple-box-shadow(400)
+  animation: animStar 20s linear infinite alternate
+
+#stars2
+  box-shadow: multiple-box-shadow(300)
+  animation-duration: 10s
+
+#stars3
+  box-shadow: multiple-box-shadow(200)
+  animation-duration: 8s
+
+.backdrop
+  display: block
+  width: 100%
+  height: 100%
+  background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%)
+  text-align: center
+  overflow: hidden
+
+.ground
+  position: absolute
+  height: 4rem
+  width: 100%
+  bottom: 0
+  background-color: $dark-color
+
+  @media screen and (max-width: $break-mobile)
+    height: 2rem
+
+img.tree
+  position: absolute
+  height: auto
+  bottom: 4rem
+
+  width: 15rem
+  margin-left: -7.5rem
+
+  @media screen and (max-width: $break-mobile)
+    width: 10rem
+    margin-left: -5rem
+    bottom: 2rem
+
+.backdrop.trees
+  background: url('/images/backdrop-trees.png') repeat-x bottom center
+  background-size: auto
+  height: 300px
+  position: absolute
+  bottom: 3rem
+  opacity: 0.8
+
+  @media screen and (max-width: $break-mobile)
+    bottom: 0rem
+
+  &.shifted
+    left: -5rem
+
+.flex
+  display: flex
+  justify-content: center
+
+.merry-christmas
+  position: absolute
+  top: 20%
+  color: #fff
+  font-family: 'Dancing Script', cursive
+  font-size: 4rem
+
+  @media screen and (max-width: $break-mobile)
+    font-size: 2rem
+
+  .sub
+    margin-left: 2rem
+    color: #808080
+
+.message
+  height: 10rem
+
+@keyframes animStar
+  from
+    opacity: 1
+    transform: translateY(0px)
+    transform: translateX(0px)
+  to
+    opacity: 0
+    transform: translateY(-20px)
+    transofrm: translateX(-30px)
