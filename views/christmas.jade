@@ -36,14 +36,14 @@ block content
     img.lights.light-4(src='/images/christmas-tree-lights04.png')
 
     .flex
-      .merry-christmas='Merry Christmas ' + receiver
+      .merry-christmas.christmas-font='Merry Christmas ' + receiver
         .sub='~ ' + sender
 
   .message
     .flex
       .content
-        p This web-page has been created by Nick Belzer.
-        p If you wish to send this page to someone else with your name create a link below and send it to them.
+        p.christmas-font A merry christmas to you #{receiver}
+        p This page has been created by Nick Belzer, if you wish to send this page to someone else with your name create a link below and send it to them.
 
           .code
             a.link#link(href='') No link generated yet
