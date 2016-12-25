@@ -6,17 +6,42 @@ extends layout
 block head
   link(rel='stylesheet', href='/stylesheets/christmas.css')
 
+  script(type='text/javascript').
+    function createLink() {
+      var recipient = $('#recipient').val();
+      var sender = $('#sender').val();
+
+      if (!recipient || !sender) return;
+
+      $('#link').text('https://dev.mateybyrd.net/christmas/' + recipient + '/' + sender);
+    }
+
 block content
   .backdrop
     #stars
     #stars2
     #stars3
 
-    .backdrop.trees
-    .backdrop.trees.shifted
+    .trees
+    .trees.shifted
     .ground
     img.tree(src='/images/christmas-tree.png')
 
     .flex
-      .merry-christmas Merry Christmas
-        .sub ~ Nick Belzer
+      .merry-christmas='Merry Christmas ' + receiver
+        .sub='~ ' + sender
+
+  .message
+    .flex
+      .content
+        p This web-page has been created by Nick Belzer.
+        p If you wish to send this page to someone else with your name create a link below and send it to them.
+
+        .code#link No link generated yet
+
+        .row
+          .col-md-6(style='padding-right: 0')
+            input.form-control#sender(placeholder='Your name', name='senderName')
+          .col-md-6(style='padding-left: 0')
+            input.form-control#recipient(placeholder='Recipient name', name='recipientName')
+        button.btn.btn-outline-primary(onClick='createLink()') Create Link

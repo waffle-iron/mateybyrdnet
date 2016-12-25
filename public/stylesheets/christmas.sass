@@ -11,8 +11,6 @@ $dark-color: #090A0F
 
   @return unquote($value)
 
-$shadows-small:  multiple-box-shadow(700)
-
 html, body
   height: 100%
 
@@ -20,24 +18,47 @@ html, body
   width: 2px
   height: 2px
   background: transparent
-  box-shadow: multiple-box-shadow(400)
+  box-shadow: multiple-box-shadow(500)
   animation: animStar 20s linear infinite alternate
 
 #stars2
-  box-shadow: multiple-box-shadow(300)
+  width: 1px
+  height: 1px
+  box-shadow: multiple-box-shadow(400)
   animation-duration: 10s
 
 #stars3
-  box-shadow: multiple-box-shadow(200)
+  width: 1px
+  height: 1px
+  box-shadow: multiple-box-shadow(300)
   animation-duration: 8s
 
 .backdrop
   display: block
   width: 100%
   height: 100%
-  background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%)
+  background: radial-gradient(ellipse at bottom, #1d2835 0%, #121319 100%)
   text-align: center
   overflow: hidden
+
+  .trees
+    background: url('/images/backdrop-trees.png') repeat-x bottom center
+    height: 300px
+    position: absolute
+    bottom: 3rem
+    opacity: 0.8
+    width: 100%
+    overflow: hidden
+
+    &.shifted
+      left: -5rem
+
+    @media screen and (max-width: $break-mobile)
+      bottom: 0rem
+
+      &.shifted
+        left: 0
+
 
 .ground
   position: absolute
@@ -62,33 +83,21 @@ img.tree
     margin-left: -5rem
     bottom: 2rem
 
-.backdrop.trees
-  background: url('/images/backdrop-trees.png') repeat-x bottom center
-  background-size: auto
-  height: 300px
-  position: absolute
-  bottom: 3rem
-  opacity: 0.8
-
-  @media screen and (max-width: $break-mobile)
-    bottom: 0rem
-
-  &.shifted
-    left: -5rem
-
 .flex
   display: flex
   justify-content: center
 
 .merry-christmas
-  position: absolute
-  top: 20%
+  z-index: 1
+  text-align: center
+  margin-top: 20%
   color: #fff
   font-family: 'Dancing Script', cursive
   font-size: 4rem
 
   @media screen and (max-width: $break-mobile)
-    font-size: 2rem
+    font-size: 1.8rem
+    margin-top: 30%
 
   .sub
     margin-left: 2rem
@@ -96,6 +105,25 @@ img.tree
 
 .message
   height: 10rem
+  padding-top: 1rem
+
+  .content
+    padding-bottom: 2rem
+
+  .row
+    padding-bottom: 0.5rem
+
+    input
+      border-radius: 0
+
+  p
+    padding: 0.5rem
+    max-width: 30rem
+
+  .code
+    color: #9e9e9e
+    padding: 1.5rem
+    padding-top: 0
 
 @keyframes animStar
   from
