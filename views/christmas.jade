@@ -13,7 +13,11 @@ block head
 
       if (!recipient || !sender) return;
 
-      $('#link').text('https://dev.mateybyrd.net/christmas/' + recipient + '/' + sender);
+      var link = 'https://dev.mateybyrd.net/christmas/' + recipient + '/' + sender;
+      link.replace(' ', '%20');
+
+      $('#link').text(link);
+      $('#link').attr('href', link);
     }
 
 block content
@@ -38,7 +42,7 @@ block content
         p If you wish to send this page to someone else with your name create a link below and send it to them.
 
           .code
-            .link#link No link generated yet
+            a.link#link(href='') No link generated yet
 
         .row
           .col-md-6
