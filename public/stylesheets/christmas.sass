@@ -45,7 +45,7 @@ html, body
     background: url('/images/backdrop-trees.png') repeat-x bottom center
     height: 300px
     position: absolute
-    bottom: 3rem
+    bottom: 1rem
     opacity: 0.8
     width: 100%
     overflow: hidden
@@ -62,18 +62,15 @@ html, body
 
 .ground
   position: absolute
-  height: 4rem
+  height: 2rem
   width: 100%
   bottom: 0
   background-color: $dark-color
 
-  @media screen and (max-width: $break-mobile)
-    height: 2rem
-
 img.tree, img.lights
   position: absolute
   height: auto
-  bottom: 4rem
+  bottom: 2rem
 
   width: 15rem
   margin-left: -7.5rem
@@ -81,7 +78,6 @@ img.tree, img.lights
   @media screen and (max-width: $break-mobile)
     width: 10rem
     margin-left: -5rem
-    bottom: 2rem
 
 .light-1, .light-2
   animation: animLights 2s linear infinite alternate
@@ -96,7 +92,7 @@ img.tree, img.lights
 .merry-christmas
   z-index: 1
   text-align: center
-  margin-top: 15%
+  margin-top: 4rem
   color: #fff
   font-family: 'Dancing Script', cursive
   font-size: 4rem
