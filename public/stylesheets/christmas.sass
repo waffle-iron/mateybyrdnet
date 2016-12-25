@@ -70,7 +70,7 @@ html, body
   @media screen and (max-width: $break-mobile)
     height: 2rem
 
-img.tree
+img.tree, img.lights
   position: absolute
   height: auto
   bottom: 4rem
@@ -83,6 +83,12 @@ img.tree
     margin-left: -5rem
     bottom: 2rem
 
+.light-1, .light-2
+  animation: animLights 2s linear infinite alternate
+
+.light-1
+  animation-duration: 1.5s
+
 .flex
   display: flex
   justify-content: center
@@ -90,13 +96,12 @@ img.tree
 .merry-christmas
   z-index: 1
   text-align: center
-  margin-top: 20%
+  margin-top: 15%
   color: #fff
   font-family: 'Dancing Script', cursive
   font-size: 4rem
 
   @media screen and (max-width: $break-mobile)
-    margin-top: 15%
     font-size: 1.8rem
 
   .sub
@@ -138,3 +143,9 @@ img.tree
     opacity: 0
     transform: translateY(-20px)
     transofrm: translateX(-30px)
+
+@keyframes animLights
+  from
+    opacity: 1
+  to
+    opacity: 0.4
