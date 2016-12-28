@@ -1,5 +1,10 @@
 extends layout
 
+mixin project(name, description)
+  .project
+    h4.name=name
+    p.description=description
+
 block head
   link(rel='stylesheet', href='/stylesheets/index.css')
   link(rel='stylesheet', href='/stylesheets/miningGame.css')
@@ -21,12 +26,8 @@ block content
   .full-width.projects-frame
     h4.title Projects
     .frame.frame-centered.frame-row
-      .project
-        h4.name MateyByrd.Net
-        p.description My personal website is where I try out new features and try to show off what I am able to do in web development.
-      .project
-        h4.name MateyByrd.Net
-        p.description My personal website is where I try out new features and try to show off what I am able to do in web development.
+      for project in projects
+        +project(project.name, project.description)
 
   .full-width.simulation-frame#mining-game
     .start-menu
