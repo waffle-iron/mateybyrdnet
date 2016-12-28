@@ -1,6 +1,9 @@
 
 @import './variables.sass'
 
+*
+  transition: all 1s
+
 // Image that covers the first part of the page.
 .cover-image
   .index-image
@@ -17,11 +20,12 @@
   padding-left: 0.4rem
   padding-right: 0.4rem
 
-  margin-top: -5rem
+  margin-top: -3rem
+  @media screen and (max-width: $break-md)
+    margin-top: 0rem
 
   .frame
     .information
-      @include box-shadow()
       background-color: #fff
       padding: 1rem
 
@@ -30,6 +34,16 @@
         width: 10rem
         height: 10rem
         border-radius: 50%
+
+        @media screen and (max-width: $break-sm)
+          padding: 0
+          width: 6rem
+          height: 6rem
+          margin-top: -5.2rem
+
+        @media screen and (min-width: $break-sm + 1) and (max-width: $break-md)
+          padding: 1rem
+          margin-top: -7.6rem
 
       .personal-information
         max-width: 22rem
@@ -41,4 +55,5 @@
           margin-top: 1rem
 
         .subtitle
+          font-style: italic
           color: #b5b5b5
