@@ -1,37 +1,44 @@
 
 @import './variables.sass'
 
+// Image that covers the first part of the page.
 .cover-image
-
   .index-image
+    // Make sure the image will not be repeated and shows over the entire page
     background: url('https://static.pexels.com/photos/192651/pexels-photo-192651.jpeg') no-repeat center center
     -webkit-background-size: cover
     background-size: cover
 
+    // Set a height for the image, else it will not be displayed
     height: 15rem
 
+// Frame used to display the welcome message to the users.
 .information-frame
   padding-left: 0.4rem
   padding-right: 0.4rem
 
   margin-top: -5rem
+
   .frame
     .information
       @include box-shadow()
       background-color: #fff
       padding: 1rem
 
-      .image
-        padding: 1rem
       img.image
+        padding: 1rem
         width: 10rem
         height: 10rem
         border-radius: 50%
+
       .personal-information
+        max-width: 22rem
+
         .name, .subtitle
           margin: 0
+
         .name
           margin-top: 1rem
+
         .subtitle
           color: #b5b5b5
-        max-width: 22rem
