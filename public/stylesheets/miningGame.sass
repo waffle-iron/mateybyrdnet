@@ -3,9 +3,7 @@
 @import url('https://fonts.googleapis.com/css?family=Audiowide')
 
 .spacing
-  height: 13.55rem
-  @media screen and (max-width: $break-mobile)
-    height: 1.87rem
+  height: 2rem
 
 .wrapper
   width: 100%
@@ -14,58 +12,37 @@
   .fixed
     top: 0
     width: 100%
-    background-color: #4d4d4d
     position: fixed
 
 .mining-game
   color: #fff
-  padding: 1rem
   font-family: 'Audiowide', cursive
-
-  @media screen and (max-width: $break-mobile)
-    padding: 0.3rem
-    .data
-      display: flex
-      justify-content: space-around
-
-      .crystals, .workers
-        .label
-          display: none
-        .amount
-          font-size: 0.8rem !important
+  max-height: 2rem
+  height: 2rem
+  background-color: #4d4d4d
+  padding: 0.2rem 1rem
 
   .overlay
-    display: flex
-    flex-direction: row
-    justify-content: flex-end
-    text-align: end
-    @media screen and (max-width: $break-mobile)
-      justify-content: center
-      text-align: center
+    .data-row
+      display: flex
+      justify-content: flex-end
+
       .data
-        width: 100%
+        padding-left: 0.5rem
+        padding-right: 0.5rem
+        font-size: 1.1rem
 
-    .crystals, .workers
-      .label
-        color: #b2b2b2
-        font-size: 0.8rem
-        text-transform: uppercase
-        &::before
-          content: '// '
-      .icon
-        display: inline-block
-        height: 1rem
-        margin-right: 0.5rem
-      .amount
-        display: inline-block
-        color: #fff
-        font-size: 1.2rem
+        display: flex
 
-    .crystals.total
-      .amount
-        color: #d2d2d2
+        .icon
+          height: 1.6rem
+          width: auto
+          padding-right: 0.4rem
 
+        .label
+          color: #d2d2d2
+          padding-right: 0.5rem
 
-  .crystals.personal
-    .amount
-      font-size: 3rem
+          @media screen and (max-width: $break-xs)
+            display: none
+
