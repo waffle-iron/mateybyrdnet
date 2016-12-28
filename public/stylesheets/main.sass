@@ -4,13 +4,16 @@
 
 \:root
   font-size: $font-size
-  font-family: 'Open Sans', sans-serif
 
 body
+  font-size: $font-size
+  font-family: 'Open Sans', sans-serif
+  color: $text-color
   margin: 0
 
 h1, h2, h3, h4, h5
   font-family: 'Roboto', sans-serif
+  color: $secondary-color
 
 p
   max-width: 22rem
@@ -52,6 +55,9 @@ p
   flex-direction: row
   @media screen and (max-width: $break-md)
     flex-direction: column
+
+.frame-row
+  flex-direction: column
 
 .frame-centered
   justify-content: center
