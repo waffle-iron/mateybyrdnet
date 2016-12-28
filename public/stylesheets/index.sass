@@ -1,0 +1,37 @@
+
+@import './variables.sass'
+
+.cover-image
+
+  .index-image
+    background: url('https://static.pexels.com/photos/192651/pexels-photo-192651.jpeg') no-repeat center center
+    -webkit-background-size: cover
+    background-size: cover
+
+    height: 15rem
+
+.information-frame
+  padding-left: 0.4rem
+  padding-right: 0.4rem
+
+  margin-top: -5rem
+  .frame
+    .information
+      @include box-shadow()
+      background-color: #fff
+      padding: 1rem
+
+      .image
+        padding: 1rem
+      img.image
+        width: 10rem
+        height: 10rem
+        border-radius: 50%
+      .personal-information
+        .name, .subtitle
+          margin: 0
+        .name
+          margin-top: 1rem
+        .subtitle
+          color: #b5b5b5
+        max-width: 22rem

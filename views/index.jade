@@ -1,21 +1,28 @@
 extends layout
 
 block head
+  link(rel='stylesheet', href='/stylesheets/index.css')
   link(rel='stylesheet', href='/stylesheets/miningGame.css')
 
 block content
+  .wrapper
+    .full-width.cover-image
+      .index-image
+
+  .full-width.information-frame
+    .frame.frame-centered
+      .information.frame.mobile-row
+        img.image(src="/images/profile_image.jpeg")
+        .personal-information
+          h3.name Nick Belzer
+          h4.subtitle Hi
+          p.description Welcome to my personal website. Here you are able to follow my progress through space and time.
+
   .full-width.simulation-frame#mining-game
     .start-menu
       .title Crystal Miner
       button.btn.btn-outline-success.loadGame(onClick='loadGame()') Start Game
 
-  .full-width.information-frame
-    .frame.frame-centered
-      img.image(src="/images/profile_image.jpeg")
-      .information
-        h3.name Nick Belzer
-        h4.subtitle Also known as MateyByrd
-        p.description Welcome to my personal website. Here you are able to follow my progress through time and space.
 
 block scripts
   script(src='/javascript/miningGameClient.js')
