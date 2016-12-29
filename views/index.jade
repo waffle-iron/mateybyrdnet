@@ -16,7 +16,7 @@ block content
 
   .full-width.information-frame
     .frame.frame-centered
-      .information.frame.mobile-row
+      .information.frame.frame-align-center.mobile-row
         img.image(src="/images/profile_image.jpeg")
         .personal-information
           h3.name Nick Belzer
@@ -25,7 +25,7 @@ block content
 
   .full-width.projects-frame
     h4.title Projects
-    .frame.frame-centered.frame-row
+    .frame.frame-centered.mobile-row
       for project in projects
         +project(project.name, project.description)
 
