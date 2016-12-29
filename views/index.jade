@@ -3,7 +3,7 @@ extends layout
 mixin project(name, description)
   .project
     h4.name=name
-    p.description=description
+    p.description!=description
 
 block head
   link(rel='stylesheet', href='/stylesheets/index.css')
