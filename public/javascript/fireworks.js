@@ -18,7 +18,12 @@ $(document).ready(function() {
   $('.backdrop').append(canvas);
   canvas.width = SCREEN_WIDTH;
   canvas.height = SCREEN_HEIGHT;
-  setInterval(launch, 800);
+  var interval = 800;
+  if (canvas.width <= 767) {
+    interval = 1200;
+    MAX_PARTICLES = 20;
+  }
+  setInterval(launch, interval);
   setInterval(loop, 1000 / 50);
 });
 
