@@ -8,6 +8,7 @@ var express = require('express'),
 var index = require('./routes/index');
 var stats = require('./routes/stats');
 var miningGame = require('./routes/miningGame');
+var christmas = require('./routes/christmas');
 
 var app = express();
 
@@ -34,6 +35,7 @@ app.use(
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
+app.use('/', christmas);
 app.use('/mining', miningGame);
 app.use('/stats', stats);
 
