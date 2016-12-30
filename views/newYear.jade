@@ -1,0 +1,32 @@
+//
+   Created by nickbelzer on 30/12/2016.
+
+extends layout
+
+block head
+  link(rel='stylesheet', href='/stylesheets/christmas.css')
+  link(rel='stylesheet', href='/stylesheets/newYear.css')
+
+block content
+  .backdrop
+    #stars
+    #stars2
+    #stars3
+
+  .message-overlay
+    .frame.frame-align-center.frame-row
+      .happy-new-year.christmas-font='Happy New Year'
+      .receiver.new-year-font=receiver
+      .sender.christmas-font='by ' + sender
+
+  .spacing
+
+  .new-year
+    .flex
+      .message
+        p.christmas-font A message for you
+        p.personal-message=message
+
+
+block scripts
+  script(src='/javascript/fireworks.js')
