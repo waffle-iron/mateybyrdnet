@@ -7,6 +7,21 @@ block head
   link(rel='stylesheet', href='/stylesheets/christmas.css')
   link(rel='stylesheet', href='/stylesheets/newYear.css')
 
+  script(type='text/javascript').
+    function createLink() {
+      var recipient = $('#recipient').val();
+      var sender = $('#sender').val();
+      var message = $('#message').val();
+
+      if (!recipient || !sender || !message) return;
+
+      var link = 'https://dev.mateybyrd.net/newYear/' + recipient + '/' + sender + '/' + message;
+      link.replace(' ', '%20');
+
+      $('#link').text(link);
+      $('#link').attr('href', link);
+    }
+
 block content
   .backdrop
     #stars
@@ -26,6 +41,25 @@ block content
       .message
         p.christmas-font A message for you
         p.personal-message!=message
+        p.christmas-font='from ' + sender
+
+  .spacing-own
+
+  .create-your-own
+    .flex
+      .message
+        p This page has been created by Nick Belzer, if you wish to send this page to someone else with your a personal message use the form below.
+
+        .code
+          a.link#link(href='') No link generated yet
+
+        .row
+          .col-md-6
+            input.form-control#sender(type='text', placeholder='From')
+          .col-md-6
+            input.form-control#recipient(type='text', placeholder='To')
+        textarea.form-control#message(placeholder='A nice message', rows=4)
+        button.btn.btn-outline-primary(onClick='createLink()') Create Link
 
 
 block scripts
