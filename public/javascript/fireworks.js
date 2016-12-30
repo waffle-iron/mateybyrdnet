@@ -19,7 +19,7 @@ $(document).ready(function() {
   canvas.width = SCREEN_WIDTH;
   canvas.height = SCREEN_HEIGHT;
   var interval = 800;
-  if (canvas.width <= 767) {
+  if (canvas.width <= 991) {
     interval = 1200;
     MAX_PARTICLES = 20;
   }
