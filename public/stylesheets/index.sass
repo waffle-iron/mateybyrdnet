@@ -1,0 +1,81 @@
+
+@import './variables.sass'
+
+*
+  transition: all 1s
+
+// Image that covers the first part of the page.
+.cover-image
+  .index-image
+    // Make sure the image will not be repeated and shows over the entire page
+    background: url('https://static.pexels.com/photos/192651/pexels-photo-192651.jpeg') no-repeat center center
+    -webkit-background-size: cover
+    background-size: cover
+
+    // Set a height for the image, else it will not be displayed
+    height: 15rem
+
+// Frame used to display the welcome message to the users.
+.information-frame
+  padding-left: 0.4rem
+  padding-right: 0.4rem
+
+  margin-top: -3rem
+  @media screen and (max-width: $break-md)
+    margin-top: 0rem
+
+  .frame
+    .information
+      background-color: #fff
+      padding: 1rem
+
+      img.image
+        padding: 1rem
+        width: 10rem
+        height: 10rem
+        border-radius: 50%
+
+        @media screen and (max-width: $break-sm)
+          padding: 0
+          width: 6rem
+          height: 6rem
+          margin-top: -5.2rem
+
+        @media screen and (min-width: $break-sm + 1) and (max-width: $break-md)
+          padding: 1rem
+          margin-top: -7.6rem
+
+      .personal-information
+        max-width: 22rem
+
+        .name, .subtitle
+          margin: 0
+
+        .name
+          margin-top: 1rem
+
+        .subtitle
+          font-style: italic
+          color: #b5b5b5
+
+// Frame used to display all of my projects
+.projects-frame
+
+  .title
+    text-align: center
+    text-transform: uppercase
+    padding: 1rem
+
+  .frame
+    .project
+      max-width: 22rem
+      padding: 0.25rem
+
+      background-color: #fff
+      border-radius: 4px
+      .name
+        padding: 1rem
+        color: #fff
+        background-color: $primary-color
+      .description
+        padding: 1rem

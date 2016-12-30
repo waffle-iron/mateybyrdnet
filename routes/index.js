@@ -1,11 +1,13 @@
 var express = require('express');
 var router = express.Router();
+var dataReader = require('./helpers/dataReader.js');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'MateyByrd.Net' });
+  var projects = dataReader.getPageData('projects');
+  res.render('index', { title: 'MateyByrd.Net', projects: projects });
 });
-
+ 
 var christmasCounter = 0;
 
 router.get('/christmas', function(req, res, next) {

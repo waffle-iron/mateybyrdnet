@@ -1,0 +1,14 @@
+[
+  {
+    "name": "MateyByrd.Net",
+    "description": "My personal website is where I try out new features and try to show off what I am able to do in web development.<br><br>The site is constantly under development, you can check out the latest version <a href='https://dev.mateybyrd.net'>here</a>."
+  },
+  {
+    "name": "Crystal Miner",
+    "description": "To test my abilities to write web applications I gave myself the task to create a small game on MateyByrd.Net that is based on the amount of time you spent on the site. You can check it out at the bottom of this page."
+  },
+  {
+    "name": "Merry Christmas",
+    "description": "For christmas I wanted to create an animated christmas card that I could send to a lot of people. On christmas eve I spent quite a few hours trying out different things but settled at <a href='https://dev.mateybyrd.net/christmas'>this</a>. You are able to adjust the link to change the recipient or sender which allowed multiple uses out of the web page."
+  }
+]

@@ -1,21 +1,39 @@
 extends layout
 
+mixin project(name, description)
+  .project
+    h4.name=name
+    p.description!=description
+
 block head
+  link(rel='stylesheet', href='/stylesheets/index.css')
   link(rel='stylesheet', href='/stylesheets/miningGame.css')
 
 block content
+  .wrapper
+    .full-width.cover-image
+      .index-image
+
+  .full-width.information-frame
+    .frame.frame-centered
+      .information.frame.frame-align-center.mobile-row
+        img.image(src="/images/profile_image.jpeg")
+        .personal-information
+          h3.name Nick Belzer
+          h5.subtitle Matey Byrd
+          p.description Welcome to my personal website. Here you are able to follow my progress through space and time.
+
+  .full-width.projects-frame
+    h4.title Projects
+    .frame.frame-centered.mobile-row
+      for project in projects
+        +project(project.name, project.description)
+
   .full-width.simulation-frame#mining-game
     .start-menu
       .title Crystal Miner
       button.btn.btn-outline-success.loadGame(onClick='loadGame()') Start Game
 
-  .full-width.information-frame
-    .frame.frame-centered
-      img.image(src="/images/profile_image.jpeg")
-      .information
-        h3.name Nick Belzer
-        h4.subtitle Also known as MateyByrd
-        p.description Welcome to my personal website. Here you are able to follow my progress through time and space.
 
 block scripts
   script(src='/javascript/miningGameClient.js')
